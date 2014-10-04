@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+//constant variables
+static const int HFBabyMonitorMinSpeed = -200;
+static const int HFBabyMonitorMaxSpeed = -100;
+
 //contact bit masks
 typedef NS_OPTIONS(uint32_t, CollisionCategory)
 {
@@ -21,5 +25,7 @@ typedef NS_OPTIONS(uint32_t, CollisionCategory)
 };
 
 @interface HFUtilities : NSObject
+
++ (NSInteger) randomWithMin:(NSInteger)min max:(NSInteger)max;
 
 @end

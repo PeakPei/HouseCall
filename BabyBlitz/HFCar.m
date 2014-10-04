@@ -17,6 +17,7 @@
 {
     HFCar *carNode = [HFCar spriteNodeWithColor:[UIColor blueColor] size:carSize];
     carNode.position = position;
+    carNode.name = @"CarNode";
     [carNode initializePhysicsBody];
 
     return carNode;

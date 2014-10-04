@@ -29,6 +29,7 @@
 		365704C219DCD16D00D5F226 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 365704C019DCD16D00D5F226 /* InfoPlist.strings */; };
 		365704C419DCD16D00D5F226 /* BabyBlitzTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 365704C319DCD16D00D5F226 /* BabyBlitzTests.m */; };
 		36AF7F2B19DCF5D0003A26F9 /* HFCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 36AF7F2A19DCF5D0003A26F9 /* HFCar.m */; };
+		36EDA07519E094C500FD592E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36EDA07419E094C500FD592E /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		365704C319DCD16D00D5F226 /* BabyBlitzTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BabyBlitzTests.m; sourceTree = "<group>"; };
 		36AF7F2919DCF5D0003A26F9 /* HFCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFCar.h; sourceTree = "<group>"; };
 		36AF7F2A19DCF5D0003A26F9 /* HFCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFCar.m; sourceTree = "<group>"; };
+		36EDA07419E094C500FD592E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36EDA07519E094C500FD592E /* AVFoundation.framework in Frameworks */,
 				36497E4419DDE83900778315 /* CoreMotion.framework in Frameworks */,
 				3657049419DCD16D00D5F226 /* CoreGraphics.framework in Frameworks */,
 				3657049619DCD16D00D5F226 /* UIKit.framework in Frameworks */,
@@ -133,8 +136,6 @@
 				365704A219DCD16D00D5F226 /* HFAppDelegate.h */,
 				365704A319DCD16D00D5F226 /* HFAppDelegate.m */,
 				365704A519DCD16D00D5F226 /* Main.storyboard */,
-				365704A819DCD16D00D5F226 /* HFViewController.h */,
-				365704A919DCD16D00D5F226 /* HFViewController.m */,
 			);
 			name = "Boiler Plate";
 			sourceTree = "<group>";
@@ -170,6 +171,7 @@
 		3657049019DCD16D00D5F226 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				36EDA07419E094C500FD592E /* AVFoundation.framework */,
 				36497E4319DDE83900778315 /* CoreMotion.framework */,
 				3657049119DCD16D00D5F226 /* Foundation.framework */,
 				3657049319DCD16D00D5F226 /* CoreGraphics.framework */,
@@ -183,6 +185,7 @@
 		3657049919DCD16D00D5F226 /* BabyBlitz */ = {
 			isa = PBXGroup;
 			children = (
+				36EDA07319E0906600FD592E /* View Controllers */,
 				36497E4E19DDF3D000778315 /* Utilities etc */,
 				36497E4A19DDF22100778315 /* Boiler Plate */,
 				36497E4919DDF21300778315 /* Custom Nodes */,
@@ -220,6 +223,15 @@
 				365704C019DCD16D00D5F226 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		36EDA07319E0906600FD592E /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				365704A819DCD16D00D5F226 /* HFViewController.h */,
+				365704A919DCD16D00D5F226 /* HFViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

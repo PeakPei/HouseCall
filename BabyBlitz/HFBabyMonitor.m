@@ -35,7 +35,6 @@
 {
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
     self.physicsBody.affectedByGravity = NO;
-    self.physicsBody.velocity = CGVectorMake(0, -100);
     self.physicsBody.categoryBitMask = CollisionCategoryMonitor;
     self.physicsBody.collisionBitMask = 0;
     self.physicsBody.contactTestBitMask = CollisionCategoryCar | CollisionCategoryGround;
