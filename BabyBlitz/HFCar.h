@@ -10,4 +10,6 @@
 
 @interface HFCar : SKSpriteNode
 
++(instancetype)initWithPosition:(CGPoint)position;
+
 @end

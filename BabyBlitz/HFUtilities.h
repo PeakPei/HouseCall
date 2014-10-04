@@ -8,6 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+//contact bit masks
+typedef NS_OPTIONS(uint32_t, CollisionCategory)
+{
+    CollisionCategoryCar        = 1 << 0,
+    CollisionCategoryMonitor    = 1 << 1,
+    CollisionCategoryDonut      = 1 << 2,
+    CollisionCategoryCoffeCup   = 1 << 3,
+    CollisionCategoryBaby       = 1 << 4,
+    CollisionCategoryEdgeScene  = 1 << 5,
+    CollisionCategoryGround     = 1 << 6,
+};
+
 @interface HFUtilities : NSObject
 
 @end

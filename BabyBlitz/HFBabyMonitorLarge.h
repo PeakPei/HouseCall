@@ -1,13 +1,13 @@
 //
-//  HFMyScene.h
+//  HFBabyMonitor.h
 //  BabyBlitz
 //
-
+//  Created by Harrison Ferrone on 10/2/14.
 //  Copyright (c) 2014 nexTIER Games. All rights reserved.
 //
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface HFMyScene : SKScene
+@interface HFBabyMonitorLarge : SKSpriteNode
 
 @end
