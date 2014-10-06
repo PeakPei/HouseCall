@@ -12,6 +12,8 @@
 #import "HFBabyMonitor.h"
 #import "HFGroundNode.h"
 #import "HFUtilities.h"
+#import "HFHudNode.h"
+#import "HFGameOverNode.h"
 
 #import <CoreMotion/CoreMotion.h>
 #import <AVFoundation/AVFoundation.h>
@@ -34,7 +36,7 @@
 @property (nonatomic) NSTimeInterval totalGameTime;
 @property (nonatomic) NSTimeInterval monitorSpawnTimeInterval;
 
-@property NSInteger score;
+@property BOOL gameOver;
 
 @end
 
@@ -65,8 +67,6 @@
 
         self.monitorSpawnTimeInterval = 1.5;
         self.totalGameTime = 0;
-
-        self.score = 0000;
     }
 }
 
@@ -87,9 +87,15 @@
     //touch to destroy baby monitor
     if ([node.name isEqualToString:@"BabyMonitor"])
     {
-        [self adjustScoreBy:100];
+        [self addPoints:HFPointsPerMonitorDestroyed];
         [node removeFromParent];
     }
+}
+
+-(void)performGameOver
+{
+    HFGameOverNode *gameOver = [HFGameOverNode gameOverAtPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
+    [self addChild: gameOver];
 }
 
 -(void)didBeginContact:(SKPhysicsContact *)contact
@@ -113,6 +119,7 @@
         [self.monitorCollisionBody removeFromParent];
 
         //adjust lives --;
+        [self loseLife];
     }
     //monitor hitting the car
     else if((contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (CollisionCategoryMonitor | CollisionCategoryCar))
@@ -131,7 +138,7 @@
         [self.monitorCollisionBody removeFromParent];
 
         //adjust lives --;
-
+        [self loseLife];
 
     }
     //coffee hitting the ground
@@ -142,7 +149,7 @@
     //coffee hitting the car
     else if((contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (CollisionCategoryCoffeCup | CollisionCategoryCar))
     {
-        [self adjustScoreBy:75];
+        [self addPoints: HFPointsPerCoffeeHit];
     }
     //donut hitting the ground
     else if((contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (CollisionCategoryDonut | CollisionCategoryGround))
@@ -152,7 +159,7 @@
     //donut hitting the car
     else if((contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (CollisionCategoryDonut | CollisionCategoryCar))
     {
-        [self adjustScoreBy:50];
+        [self addPoints:HFPointsPerDonutHit];
     }
     //baby hitting the ground
     else if((contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (CollisionCategoryBaby | CollisionCategoryGround))
@@ -162,7 +169,7 @@
     //baby hitting the car
     else if((contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (CollisionCategoryBaby | CollisionCategoryCar))
     {
-        [self adjustScoreBy:150];
+        [self addPoints:HFPointsPerBabyHit];
     }
 }
 
@@ -205,6 +212,11 @@
     {
         self.monitorSpawnTimeInterval = 1;
     }
+
+    if(self.gameOver)
+    {
+        [self performGameOver];
+    }
 }
 
 -(void)loadSceneContent
@@ -244,30 +256,8 @@
 
 -(void)initializeHUD
 {
-    //score label
-    SKLabelNode* scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Courier"];
-    scoreLabel.name = @"Score Label";
-    scoreLabel.fontSize = 15;
-    scoreLabel.fontColor = [SKColor greenColor];
-    scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", (long)self.score];
-    scoreLabel.position = CGPointMake(self.size.width/2 + 145, self.size.height - (20 + scoreLabel.frame.size.height/2));
-    [self addChild:scoreLabel];
-
-    //health label
-    SKLabelNode* healthLabel = [SKLabelNode labelNodeWithFontNamed:@"Courier"];
-    healthLabel.name = @"Health Label";
-    healthLabel.fontSize = 15;
-    healthLabel.fontColor = [SKColor redColor];
-    healthLabel.text = [NSString stringWithFormat:@"Health: %.1f%%", 100.0f];
-    healthLabel.position = CGPointMake(self.size.width/2 + 160, self.size.height - (40 + healthLabel.frame.size.height/2));
-    [self addChild:healthLabel];
-
-    //back button
-    SKSpriteNode *backButton = [SKSpriteNode spriteNodeWithImageNamed: @"BackButton"];
-    backButton.position = CGPointMake(self.size.width/2 - 200, self.size.height - (30 + healthLabel.frame.size.height/2));
-    backButton.size = CGSizeMake(45, 45);
-    [backButton setName:@"backButtonNode"];
-    [self addChild:backButton];
+    HFHudNode *hud = [HFHudNode hudAtPostions:CGPointMake(0, self.frame.size.height - 20) inFrame:self.frame];
+    [self addChild:hud];
 }
 
 -(void)userMotionForUpdate:(NSTimeInterval)currentTime
@@ -285,16 +275,16 @@
     }
 }
 
--(void)adjustScoreBy:(NSUInteger)points
+-(void)addPoints:(NSInteger)points
 {
-    self.score += points;
-    SKLabelNode* score = (SKLabelNode*)[self childNodeWithName:@"Score Label"];
-    score.text = [NSString stringWithFormat:@"Score: %ld", (long)self.score];
+    HFHudNode *hud = (HFHudNode *)[self childNodeWithName:@"HUD"];
+    [hud addPoint:points];
 }
 
--(void)adjustLivesBy
+-(void)loseLife
 {
-    
+    HFHudNode *hud = (HFHudNode *)[self childNodeWithName:@"HUD"];
+    self.gameOver = [hud loseLife];
 }
 
 @end

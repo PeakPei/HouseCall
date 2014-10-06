@@ -11,6 +11,11 @@
 //constant variables
 static const int HFBabyMonitorMinSpeed = -200;
 static const int HFBabyMonitorMaxSpeed = -100;
+static const int HFMaxLives = 3;
+static const int HFPointsPerCoffeeHit = 50;
+static const int HFPointsPerDonutHit = 75;
+static const int HFPointsPerBabyHit = 100;
+static const int HFPointsPerMonitorDestroyed = 150;
 
 //contact bit masks
 typedef NS_OPTIONS(uint32_t, CollisionCategory)

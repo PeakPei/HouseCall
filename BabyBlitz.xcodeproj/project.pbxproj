@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3601798019DCD3320082E86A /* HFMainGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3601797F19DCD3320082E86A /* HFMainGameScene.m */; };
+		3624DA4919E2FB2600D9DB22 /* HFHudNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3624DA4819E2FB2600D9DB22 /* HFHudNode.m */; };
+		36286A5619E3152D0056A6E7 /* HFGameOverNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 36286A5519E3152D0056A6E7 /* HFGameOverNode.m */; };
 		362F995419DF5368003F0690 /* HFBabyMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 362F995319DF5368003F0690 /* HFBabyMonitor.m */; };
 		362F995719DF5BC8003F0690 /* HFGroundNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 362F995619DF5BC8003F0690 /* HFGroundNode.m */; };
 		36497E4419DDE83900778315 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36497E4319DDE83900778315 /* CoreMotion.framework */; };
@@ -45,6 +47,10 @@
 /* Begin PBXFileReference section */
 		3601797E19DCD3320082E86A /* HFMainGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFMainGameScene.h; sourceTree = "<group>"; };
 		3601797F19DCD3320082E86A /* HFMainGameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFMainGameScene.m; sourceTree = "<group>"; };
+		3624DA4719E2FB2600D9DB22 /* HFHudNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFHudNode.h; sourceTree = "<group>"; };
+		3624DA4819E2FB2600D9DB22 /* HFHudNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFHudNode.m; sourceTree = "<group>"; };
+		36286A5419E3152D0056A6E7 /* HFGameOverNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFGameOverNode.h; sourceTree = "<group>"; };
+		36286A5519E3152D0056A6E7 /* HFGameOverNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFGameOverNode.m; sourceTree = "<group>"; };
 		362F995219DF5368003F0690 /* HFBabyMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFBabyMonitor.h; sourceTree = "<group>"; };
 		362F995319DF5368003F0690 /* HFBabyMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFBabyMonitor.m; sourceTree = "<group>"; };
 		362F995519DF5BC8003F0690 /* HFGroundNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFGroundNode.h; sourceTree = "<group>"; };
@@ -126,6 +132,10 @@
 				362F995319DF5368003F0690 /* HFBabyMonitor.m */,
 				362F995519DF5BC8003F0690 /* HFGroundNode.h */,
 				362F995619DF5BC8003F0690 /* HFGroundNode.m */,
+				3624DA4719E2FB2600D9DB22 /* HFHudNode.h */,
+				3624DA4819E2FB2600D9DB22 /* HFHudNode.m */,
+				36286A5419E3152D0056A6E7 /* HFGameOverNode.h */,
+				36286A5519E3152D0056A6E7 /* HFGameOverNode.m */,
 			);
 			name = "Custom Nodes";
 			sourceTree = "<group>";
@@ -337,7 +347,9 @@
 				362F995719DF5BC8003F0690 /* HFGroundNode.m in Sources */,
 				36497E4D19DDF3C500778315 /* HFUtilities.m in Sources */,
 				365704A419DCD16D00D5F226 /* HFAppDelegate.m in Sources */,
+				3624DA4919E2FB2600D9DB22 /* HFHudNode.m in Sources */,
 				36AF7F2B19DCF5D0003A26F9 /* HFCar.m in Sources */,
+				36286A5619E3152D0056A6E7 /* HFGameOverNode.m in Sources */,
 				365704A019DCD16D00D5F226 /* main.m in Sources */,
 				362F995419DF5368003F0690 /* HFBabyMonitor.m in Sources */,
 				3601798019DCD3320082E86A /* HFMainGameScene.m in Sources */,
