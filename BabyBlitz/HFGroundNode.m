@@ -25,7 +25,7 @@
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
     self.physicsBody.affectedByGravity = NO;
     self.physicsBody.dynamic = NO;
-    self.physicsBody.categoryBitMask = CollisionCategoryEdgeScene;
+    self.physicsBody.categoryBitMask = CollisionCategoryGround;
     self.physicsBody.contactTestBitMask = CollisionCategoryMonitor;
 }
 

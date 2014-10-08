@@ -13,7 +13,6 @@
 		362F995419DF5368003F0690 /* HFBabyMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 362F995319DF5368003F0690 /* HFBabyMonitor.m */; };
 		362F995719DF5BC8003F0690 /* HFGroundNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 362F995619DF5BC8003F0690 /* HFGroundNode.m */; };
 		36497E4419DDE83900778315 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36497E4319DDE83900778315 /* CoreMotion.framework */; };
-		36497E4719DDEDC400778315 /* HFTitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 36497E4619DDEDC400778315 /* HFTitleScene.m */; };
 		36497E4D19DDF3C500778315 /* HFUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 36497E4C19DDF3C500778315 /* HFUtilities.m */; };
 		3657049219DCD16D00D5F226 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3657049119DCD16D00D5F226 /* Foundation.framework */; };
 		3657049419DCD16D00D5F226 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3657049319DCD16D00D5F226 /* CoreGraphics.framework */; };
@@ -23,13 +22,21 @@
 		365704A019DCD16D00D5F226 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3657049F19DCD16D00D5F226 /* main.m */; };
 		365704A419DCD16D00D5F226 /* HFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 365704A319DCD16D00D5F226 /* HFAppDelegate.m */; };
 		365704A719DCD16D00D5F226 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 365704A519DCD16D00D5F226 /* Main.storyboard */; };
-		365704AA19DCD16D00D5F226 /* HFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 365704A919DCD16D00D5F226 /* HFViewController.m */; };
+		365704AA19DCD16D00D5F226 /* HFGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 365704A919DCD16D00D5F226 /* HFGameViewController.m */; };
 		365704B119DCD16D00D5F226 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 365704B019DCD16D00D5F226 /* Images.xcassets */; };
 		365704B819DCD16D00D5F226 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 365704B719DCD16D00D5F226 /* XCTest.framework */; };
 		365704B919DCD16D00D5F226 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3657049119DCD16D00D5F226 /* Foundation.framework */; };
 		365704BA19DCD16D00D5F226 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3657049519DCD16D00D5F226 /* UIKit.framework */; };
 		365704C219DCD16D00D5F226 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 365704C019DCD16D00D5F226 /* InfoPlist.strings */; };
 		365704C419DCD16D00D5F226 /* BabyBlitzTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 365704C319DCD16D00D5F226 /* BabyBlitzTests.m */; };
+		3669760C19E5B82F00770809 /* HFLevelTitleNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3669760B19E5B82F00770809 /* HFLevelTitleNode.m */; };
+		3681562719E4B8320060E8BC /* HFRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3681562619E4B8320060E8BC /* HFRootViewController.m */; };
+		3681562A19E501F30060E8BC /* HFDoctorSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3681562919E501F30060E8BC /* HFDoctorSelectViewController.m */; };
+		3681562D19E5024E0060E8BC /* HFTutorialScene1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3681562C19E5024E0060E8BC /* HFTutorialScene1.m */; };
+		3681563019E5025D0060E8BC /* HFTutorialScene2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3681562F19E5025D0060E8BC /* HFTutorialScene2.m */; };
+		3681563319E5039D0060E8BC /* HFLastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3681563219E5039D0060E8BC /* HFLastViewController.m */; };
+		3681563619E503C90060E8BC /* HFLevel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3681563519E503C90060E8BC /* HFLevel2.m */; };
+		3681563919E503D40060E8BC /* HFLevel3.m in Sources */ = {isa = PBXBuildFile; fileRef = 3681563819E503D40060E8BC /* HFLevel3.m */; };
 		36AF7F2B19DCF5D0003A26F9 /* HFCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 36AF7F2A19DCF5D0003A26F9 /* HFCar.m */; };
 		36EDA07519E094C500FD592E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36EDA07419E094C500FD592E /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
@@ -56,8 +63,6 @@
 		362F995519DF5BC8003F0690 /* HFGroundNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFGroundNode.h; sourceTree = "<group>"; };
 		362F995619DF5BC8003F0690 /* HFGroundNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFGroundNode.m; sourceTree = "<group>"; };
 		36497E4319DDE83900778315 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		36497E4519DDEDC400778315 /* HFTitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFTitleScene.h; sourceTree = "<group>"; };
-		36497E4619DDEDC400778315 /* HFTitleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFTitleScene.m; sourceTree = "<group>"; };
 		36497E4B19DDF3C400778315 /* HFUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFUtilities.h; sourceTree = "<group>"; };
 		36497E4C19DDF3C500778315 /* HFUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFUtilities.m; sourceTree = "<group>"; };
 		3657048E19DCD16D00D5F226 /* BabyBlitz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabyBlitz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,14 +77,30 @@
 		365704A219DCD16D00D5F226 /* HFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFAppDelegate.h; sourceTree = "<group>"; };
 		365704A319DCD16D00D5F226 /* HFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFAppDelegate.m; sourceTree = "<group>"; };
 		365704A619DCD16D00D5F226 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		365704A819DCD16D00D5F226 /* HFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFViewController.h; sourceTree = "<group>"; };
-		365704A919DCD16D00D5F226 /* HFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFViewController.m; sourceTree = "<group>"; };
+		365704A819DCD16D00D5F226 /* HFGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HFGameViewController.h; sourceTree = "<group>"; };
+		365704A919DCD16D00D5F226 /* HFGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HFGameViewController.m; sourceTree = "<group>"; };
 		365704B019DCD16D00D5F226 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		365704B619DCD16D00D5F226 /* BabyBlitzTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BabyBlitzTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		365704B719DCD16D00D5F226 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		365704BF19DCD16D00D5F226 /* BabyBlitzTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BabyBlitzTests-Info.plist"; sourceTree = "<group>"; };
 		365704C119DCD16D00D5F226 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		365704C319DCD16D00D5F226 /* BabyBlitzTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BabyBlitzTests.m; sourceTree = "<group>"; };
+		3669760A19E5B82F00770809 /* HFLevelTitleNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFLevelTitleNode.h; sourceTree = "<group>"; };
+		3669760B19E5B82F00770809 /* HFLevelTitleNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFLevelTitleNode.m; sourceTree = "<group>"; };
+		3681562519E4B8320060E8BC /* HFRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFRootViewController.h; sourceTree = "<group>"; };
+		3681562619E4B8320060E8BC /* HFRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFRootViewController.m; sourceTree = "<group>"; };
+		3681562819E501F30060E8BC /* HFDoctorSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFDoctorSelectViewController.h; sourceTree = "<group>"; };
+		3681562919E501F30060E8BC /* HFDoctorSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFDoctorSelectViewController.m; sourceTree = "<group>"; };
+		3681562B19E5024E0060E8BC /* HFTutorialScene1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFTutorialScene1.h; sourceTree = "<group>"; };
+		3681562C19E5024E0060E8BC /* HFTutorialScene1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFTutorialScene1.m; sourceTree = "<group>"; };
+		3681562E19E5025D0060E8BC /* HFTutorialScene2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFTutorialScene2.h; sourceTree = "<group>"; };
+		3681562F19E5025D0060E8BC /* HFTutorialScene2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFTutorialScene2.m; sourceTree = "<group>"; };
+		3681563119E5039C0060E8BC /* HFLastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFLastViewController.h; sourceTree = "<group>"; };
+		3681563219E5039D0060E8BC /* HFLastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFLastViewController.m; sourceTree = "<group>"; };
+		3681563419E503C90060E8BC /* HFLevel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFLevel2.h; sourceTree = "<group>"; };
+		3681563519E503C90060E8BC /* HFLevel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFLevel2.m; sourceTree = "<group>"; };
+		3681563719E503D40060E8BC /* HFLevel3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFLevel3.h; sourceTree = "<group>"; };
+		3681563819E503D40060E8BC /* HFLevel3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFLevel3.m; sourceTree = "<group>"; };
 		36AF7F2919DCF5D0003A26F9 /* HFCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFCar.h; sourceTree = "<group>"; };
 		36AF7F2A19DCF5D0003A26F9 /* HFCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFCar.m; sourceTree = "<group>"; };
 		36EDA07419E094C500FD592E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -115,10 +136,16 @@
 		36497E4819DDF20600778315 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				3681562B19E5024E0060E8BC /* HFTutorialScene1.h */,
+				3681562C19E5024E0060E8BC /* HFTutorialScene1.m */,
+				3681562E19E5025D0060E8BC /* HFTutorialScene2.h */,
+				3681562F19E5025D0060E8BC /* HFTutorialScene2.m */,
 				3601797E19DCD3320082E86A /* HFMainGameScene.h */,
 				3601797F19DCD3320082E86A /* HFMainGameScene.m */,
-				36497E4519DDEDC400778315 /* HFTitleScene.h */,
-				36497E4619DDEDC400778315 /* HFTitleScene.m */,
+				3681563419E503C90060E8BC /* HFLevel2.h */,
+				3681563519E503C90060E8BC /* HFLevel2.m */,
+				3681563719E503D40060E8BC /* HFLevel3.h */,
+				3681563819E503D40060E8BC /* HFLevel3.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -136,6 +163,8 @@
 				3624DA4819E2FB2600D9DB22 /* HFHudNode.m */,
 				36286A5419E3152D0056A6E7 /* HFGameOverNode.h */,
 				36286A5519E3152D0056A6E7 /* HFGameOverNode.m */,
+				3669760A19E5B82F00770809 /* HFLevelTitleNode.h */,
+				3669760B19E5B82F00770809 /* HFLevelTitleNode.m */,
 			);
 			name = "Custom Nodes";
 			sourceTree = "<group>";
@@ -238,8 +267,14 @@
 		36EDA07319E0906600FD592E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				365704A819DCD16D00D5F226 /* HFViewController.h */,
-				365704A919DCD16D00D5F226 /* HFViewController.m */,
+				3681562519E4B8320060E8BC /* HFRootViewController.h */,
+				3681562619E4B8320060E8BC /* HFRootViewController.m */,
+				3681562819E501F30060E8BC /* HFDoctorSelectViewController.h */,
+				3681562919E501F30060E8BC /* HFDoctorSelectViewController.m */,
+				365704A819DCD16D00D5F226 /* HFGameViewController.h */,
+				365704A919DCD16D00D5F226 /* HFGameViewController.m */,
+				3681563119E5039C0060E8BC /* HFLastViewController.h */,
+				3681563219E5039D0060E8BC /* HFLastViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -342,17 +377,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				365704AA19DCD16D00D5F226 /* HFViewController.m in Sources */,
-				36497E4719DDEDC400778315 /* HFTitleScene.m in Sources */,
+				365704AA19DCD16D00D5F226 /* HFGameViewController.m in Sources */,
+				3681562D19E5024E0060E8BC /* HFTutorialScene1.m in Sources */,
 				362F995719DF5BC8003F0690 /* HFGroundNode.m in Sources */,
 				36497E4D19DDF3C500778315 /* HFUtilities.m in Sources */,
 				365704A419DCD16D00D5F226 /* HFAppDelegate.m in Sources */,
+				3681563319E5039D0060E8BC /* HFLastViewController.m in Sources */,
 				3624DA4919E2FB2600D9DB22 /* HFHudNode.m in Sources */,
 				36AF7F2B19DCF5D0003A26F9 /* HFCar.m in Sources */,
+				3681563919E503D40060E8BC /* HFLevel3.m in Sources */,
+				3669760C19E5B82F00770809 /* HFLevelTitleNode.m in Sources */,
 				36286A5619E3152D0056A6E7 /* HFGameOverNode.m in Sources */,
 				365704A019DCD16D00D5F226 /* main.m in Sources */,
 				362F995419DF5368003F0690 /* HFBabyMonitor.m in Sources */,
+				3681562719E4B8320060E8BC /* HFRootViewController.m in Sources */,
+				3681563019E5025D0060E8BC /* HFTutorialScene2.m in Sources */,
+				3681563619E503C90060E8BC /* HFLevel2.m in Sources */,
 				3601798019DCD3320082E86A /* HFMainGameScene.m in Sources */,
+				3681562A19E501F30060E8BC /* HFDoctorSelectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

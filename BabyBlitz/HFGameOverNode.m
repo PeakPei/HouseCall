@@ -7,6 +7,8 @@
 //
 
 #import "HFGameOverNode.h"
+#import "HFMainGameScene.h"
+#import "HFRootViewController.h"
 
 @implementation HFGameOverNode
 
@@ -14,7 +16,7 @@
 {
     HFGameOverNode *gameOver = [self node];
 
-    SKLabelNode *gameOverLabel = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
+    SKLabelNode *gameOverLabel = [SKLabelNode labelNodeWithFontNamed:@"Futura-CondensedExtraBold"];
     gameOverLabel.name = @"GameOver";
     gameOverLabel.text = @"Game Over";
     gameOverLabel.fontSize = 48;
@@ -23,6 +25,35 @@
     [gameOver addChild:gameOverLabel];
 
     return gameOver;
+}
+
+-(void)performAnimation
+{
+    SKLabelNode *labelNode = (SKLabelNode*)[self childNodeWithName:@"GameOver"];
+    labelNode.xScale = 0;
+    labelNode.yScale = 0;
+
+    SKAction *scaleUp = [SKAction scaleTo:1.2 duration:.75];
+    SKAction *scaleDown = [SKAction scaleTo:0.9 duration:.25];
+    SKAction *run = [SKAction runBlock:^
+    {
+        SKLabelNode *touchToRestart = [SKLabelNode labelNodeWithFontNamed:@"Futura-CondensedExtraBold"];
+        touchToRestart.text = @"Touch to Restart";
+        touchToRestart.name = @"Restart";
+        touchToRestart.fontSize = 24;
+        touchToRestart.position = CGPointMake(labelNode.position.x, labelNode.position.y - 40);
+        [self addChild:touchToRestart];
+
+//        SKLabelNode *toMainMenu = [SKLabelNode labelNodeWithFontNamed:@"Futura-CondensedExtraBold"];
+//        toMainMenu.text = @"Main Menu";
+//        toMainMenu.name = @"MainMenu";
+//        toMainMenu.fontSize = 24;
+//        toMainMenu.position = CGPointMake(touchToRestart.position.x, touchToRestart.position.y - 50);
+//        [self addChild:toMainMenu];
+    }];
+    SKAction *scaleSequence = [SKAction sequence:@[scaleUp, scaleDown, run]];
+
+    [labelNode runAction:scaleSequence];
 }
 
 @end

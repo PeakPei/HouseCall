@@ -28,7 +28,7 @@
 
     for(int i = 0; i < hud.lives; i++)
     {
-        SKSpriteNode *lifeNode = [SKSpriteNode spriteNodeWithColor:[UIColor brownColor] size:CGSizeMake(35, 35)];
+        SKSpriteNode *lifeNode = [SKSpriteNode spriteNodeWithColor:[UIColor brownColor] size:CGSizeMake(15, 15)];
         lifeNode.name = [NSString stringWithFormat:@"Life%d", i + 1];
         [hud addChild:lifeNode];
 
@@ -49,7 +49,7 @@
     scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeRight;
     scoreLabel.position = CGPointMake(frame.size.width - 20, -10);
     [hud addChild:scoreLabel];
-
+    
     return hud;
 }
 

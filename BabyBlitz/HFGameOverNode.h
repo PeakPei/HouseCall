@@ -11,5 +11,6 @@
 @interface HFGameOverNode : SKNode
 
 +(instancetype)gameOverAtPosition:(CGPoint)position;
+-(void)performAnimation;
 
 @end

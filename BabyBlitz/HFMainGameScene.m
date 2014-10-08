@@ -7,13 +7,15 @@
 //
 
 #import "HFMainGameScene.h"
-#import "HFTitleScene.h"
 #import "HFCar.h"
 #import "HFBabyMonitor.h"
 #import "HFGroundNode.h"
 #import "HFUtilities.h"
 #import "HFHudNode.h"
 #import "HFGameOverNode.h"
+#import "HFLevel2.h"
+#import "HFRootViewController.h"
+#import "HFLevelTitleNode.h"
 
 #import <CoreMotion/CoreMotion.h>
 #import <AVFoundation/AVFoundation.h>
@@ -29,6 +31,7 @@
 @property HFBabyMonitor *monitorCollisionBody;
 @property HFGroundNode *groundCollisionBody;
 @property HFCar *carCollisionBody;
+@property HFLevelTitleNode *levelTitle;
 
 @property (nonatomic) NSTimeInterval lastUpdateTimeInterval;
 @property (nonatomic) NSTimeInterval timeSinceMonitorAdded;
@@ -37,6 +40,8 @@
 @property (nonatomic) NSTimeInterval monitorSpawnTimeInterval;
 
 @property BOOL gameOver;
+@property BOOL restart;
+@property BOOL gameOverDisplayed;
 
 @end
 
@@ -67,6 +72,14 @@
 
         self.monitorSpawnTimeInterval = 1.5;
         self.totalGameTime = 0;
+
+        self.gameOver = NO;
+        self.restart = NO;
+        self.gameOverDisplayed = NO;
+
+        self.levelTitle = [HFLevelTitleNode levelTitleAtPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame)) levelNumber:1];
+        [self addChild:self.levelTitle];
+        [self.levelTitle performAnimation];
     }
 }
 
@@ -76,26 +89,55 @@
     CGPoint location = [touch locationInNode:self];
     SKNode *node = [self nodeAtPoint:location];
 
-    //back button segue
-    if ([node.name isEqualToString:@"backButtonNode"])
-    {
-        HFTitleScene *titleScene = [HFTitleScene sceneWithSize:self.frame.size];
-        SKTransition *transition = [SKTransition fadeWithDuration:1.0];
-        [self.view presentScene:titleScene transition:transition];
-    }
-
     //touch to destroy baby monitor
     if ([node.name isEqualToString:@"BabyMonitor"])
     {
         [self addPoints:HFPointsPerMonitorDestroyed];
         [node removeFromParent];
     }
+
+    if (self.restart)
+    {
+        for (SKNode *node in self.children)
+        {
+            [node removeFromParent];
+        }
+
+        HFMainGameScene *mainGameRestart = [HFMainGameScene sceneWithSize:self.view.bounds.size];
+        [self.view presentScene:mainGameRestart];
+    }
+    
+//    HFGameOverNode *gameOverNode = (HFGameOverNode*)[self childNodeWithName:@"GameOver"];
+//    NSString *gameOverNodeName = (NSString*)[gameOverNode childNodeWithName:@"MainMenu"];
+//    NSString *restartNodeName = (NSString*)[gameOverNode childNodeWithName:@"Restart"];
+//    
+//
+//    if ([node.name isEqualToString:gameOverNodeName])
+//    {
+//        UIViewController *rootVC = self.view.window.rootViewController;
+//        [rootVC dismissViewControllerAnimated:YES completion:nil];
+//    }
+//    else if ([node.name isEqualToString:restartNodeName])
+//    {
+//        HFMainGameScene *mainGameRestart = [HFMainGameScene sceneWithSize:self.view.bounds.size];
+//        [self.view presentScene:mainGameRestart];
+//    }
 }
 
 -(void)performGameOver
 {
     HFGameOverNode *gameOver = [HFGameOverNode gameOverAtPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
     [self addChild: gameOver];
+    self.restart = YES;
+    self.gameOverDisplayed = YES;
+    [gameOver performAnimation];
+
+    //back button
+    SKSpriteNode *menuButton = [SKSpriteNode spriteNodeWithImageNamed: @"BackButton"];
+    menuButton.position = CGPointMake(CGRectGetMidX(self.frame) - 140, CGRectGetMidY(self.frame) - 225);
+    menuButton.size = CGSizeMake(25, 65);
+    [menuButton setName:@"backButtonNode"];
+    [self addChild:menuButton];
 }
 
 -(void)didBeginContact:(SKPhysicsContact *)contact
@@ -184,13 +226,18 @@
     if (self.lastUpdateTimeInterval)
     {
         self.timeSinceMonitorAdded += currentTime - self.lastUpdateTimeInterval;
-        self.gameSceneLoaded += currentTime - self.lastUpdateTimeInterval;
+        self.totalGameTime += currentTime - self.lastUpdateTimeInterval;
     }
 
-    if (self.timeSinceMonitorAdded > self.monitorSpawnTimeInterval)
+    if (self.timeSinceMonitorAdded > self.monitorSpawnTimeInterval && !self.gameOver)
     {
         [self initializeBabyMonitor];
         self.timeSinceMonitorAdded = 0;
+    }
+
+    if (self.totalGameTime > 2.5)
+    {
+        [self.levelTitle removeFromParent];
     }
 
     //difficulty settings
@@ -213,9 +260,15 @@
         self.monitorSpawnTimeInterval = 1;
     }
 
-    if(self.gameOver)
+    if(self.gameOver && !self.gameOverDisplayed)
     {
         [self performGameOver];
+    }
+
+    HFHudNode *hud = (HFHudNode *)[self childNodeWithName:@"HUD"];
+    if (hud.score > 300)
+    {
+        [self advanceToNextLevel];
     }
 }
 
@@ -285,6 +338,12 @@
 {
     HFHudNode *hud = (HFHudNode *)[self childNodeWithName:@"HUD"];
     self.gameOver = [hud loseLife];
+}
+
+-(void)advanceToNextLevel
+{
+    HFLevel2 *level2 = [HFLevel2 sceneWithSize:self.view.bounds.size];
+    [self.view presentScene:level2];
 }
 
 @end

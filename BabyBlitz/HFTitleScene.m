@@ -8,6 +8,7 @@
 
 #import "HFTitleScene.h"
 #import "HFMainGameScene.h"
+#import "HFRootViewController.h"
 
 @implementation HFTitleScene
 
