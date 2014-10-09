@@ -15,7 +15,8 @@
 
 +(instancetype)initWithPosition:(CGPoint)position
 {
-    HFCar *carNode = [HFCar spriteNodeWithColor:[UIColor blueColor] size:carSize];
+    HFCar *carNode = [HFCar spriteNodeWithImageNamed:@"fiat"];
+    carNode.size = CGSizeMake(125, 100);
     carNode.position = position;
     carNode.name = @"CarNode";
     [carNode initializePhysicsBody];

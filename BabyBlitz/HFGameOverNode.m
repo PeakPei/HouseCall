@@ -43,13 +43,6 @@
         touchToRestart.fontSize = 24;
         touchToRestart.position = CGPointMake(labelNode.position.x, labelNode.position.y - 40);
         [self addChild:touchToRestart];
-
-//        SKLabelNode *toMainMenu = [SKLabelNode labelNodeWithFontNamed:@"Futura-CondensedExtraBold"];
-//        toMainMenu.text = @"Main Menu";
-//        toMainMenu.name = @"MainMenu";
-//        toMainMenu.fontSize = 24;
-//        toMainMenu.position = CGPointMake(touchToRestart.position.x, touchToRestart.position.y - 50);
-//        [self addChild:toMainMenu];
     }];
     SKAction *scaleSequence = [SKAction sequence:@[scaleUp, scaleDown, run]];
 

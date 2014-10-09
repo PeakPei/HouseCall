@@ -16,6 +16,10 @@
 #import "HFLevel2.h"
 #import "HFRootViewController.h"
 #import "HFLevelTitleNode.h"
+#import "HFStartScene.h"
+#import "HFDonutNode.h"
+#import "HFCoffeeNode.h"
+#import "HFBabyNode.h"
 
 #import <CoreMotion/CoreMotion.h>
 #import <AVFoundation/AVFoundation.h>
@@ -31,6 +35,9 @@
 @property HFBabyMonitor *monitorCollisionBody;
 @property HFGroundNode *groundCollisionBody;
 @property HFCar *carCollisionBody;
+@property HFDonutNode *donutCollisionBody;
+@property HFCoffeeNode *coffeCollisionBody;
+@property HFBabyNode *babyCollisionBody;
 @property HFLevelTitleNode *levelTitle;
 
 @property (nonatomic) NSTimeInterval lastUpdateTimeInterval;
@@ -38,6 +45,9 @@
 
 @property (nonatomic) NSTimeInterval totalGameTime;
 @property (nonatomic) NSTimeInterval monitorSpawnTimeInterval;
+@property (nonatomic) NSTimeInterval donutSpawnTimeInterval;
+@property (nonatomic) NSTimeInterval coffeeSpawnTimeInterval;
+@property (nonatomic) NSTimeInterval babySpawnTimeInterval;
 
 @property BOOL gameOver;
 @property BOOL restart;
@@ -52,6 +62,11 @@
 {
     if (!self.gameSceneLoaded)
     {
+        SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"Background"];
+        background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+        background.size = CGSizeMake(self.frame.size.width, self.frame.size.height);
+        [self addChild:background];
+
         [self loadSceneContent];
         self.gameSceneLoaded = YES;
 
@@ -70,7 +85,11 @@
         self.lastUpdateTimeInterval = 0;
         self.timeSinceMonitorAdded = 0;
 
-        self.monitorSpawnTimeInterval = 1.5;
+        self.monitorSpawnTimeInterval = 2;
+        self.donutSpawnTimeInterval = 2.5;
+        self.coffeeSpawnTimeInterval = 2.75;
+        self.babySpawnTimeInterval = 3;
+
         self.totalGameTime = 0;
 
         self.gameOver = NO;
@@ -103,25 +122,9 @@
             [node removeFromParent];
         }
 
-        HFMainGameScene *mainGameRestart = [HFMainGameScene sceneWithSize:self.view.bounds.size];
-        [self.view presentScene:mainGameRestart];
+        HFStartScene *reset = [HFStartScene sceneWithSize:self.view.bounds.size];
+        [self.view presentScene:reset];
     }
-    
-//    HFGameOverNode *gameOverNode = (HFGameOverNode*)[self childNodeWithName:@"GameOver"];
-//    NSString *gameOverNodeName = (NSString*)[gameOverNode childNodeWithName:@"MainMenu"];
-//    NSString *restartNodeName = (NSString*)[gameOverNode childNodeWithName:@"Restart"];
-//    
-//
-//    if ([node.name isEqualToString:gameOverNodeName])
-//    {
-//        UIViewController *rootVC = self.view.window.rootViewController;
-//        [rootVC dismissViewControllerAnimated:YES completion:nil];
-//    }
-//    else if ([node.name isEqualToString:restartNodeName])
-//    {
-//        HFMainGameScene *mainGameRestart = [HFMainGameScene sceneWithSize:self.view.bounds.size];
-//        [self.view presentScene:mainGameRestart];
-//    }
 }
 
 -(void)performGameOver
@@ -131,19 +134,10 @@
     self.restart = YES;
     self.gameOverDisplayed = YES;
     [gameOver performAnimation];
-
-    //back button
-    SKSpriteNode *menuButton = [SKSpriteNode spriteNodeWithImageNamed: @"BackButton"];
-    menuButton.position = CGPointMake(CGRectGetMidX(self.frame) - 140, CGRectGetMidY(self.frame) - 225);
-    menuButton.size = CGSizeMake(25, 65);
-    [menuButton setName:@"backButtonNode"];
-    [self addChild:menuButton];
 }
 
 -(void)didBeginContact:(SKPhysicsContact *)contact
 {
-    //NSArray *contactNodeNames = @[contact.bodyA.node.name, contact.bodyB.node.name];
-
     //monitor hitting the ground
     if ((contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (CollisionCategoryMonitor | CollisionCategoryGround))
     {
@@ -186,32 +180,96 @@
     //coffee hitting the ground
     else if((contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (CollisionCategoryCoffeCup | CollisionCategoryGround))
     {
+        if (contact.bodyA.categoryBitMask == CollisionCategoryCoffeCup)
+        {
+            self.coffeCollisionBody = (HFCoffeeNode*)contact.bodyA.node;
+            self.groundCollisionBody = (HFGroundNode*)contact.bodyB.node;
+        }else
+        {
+            self.coffeCollisionBody = (HFCoffeeNode*)contact.bodyB.node;
+            self.groundCollisionBody = (HFGroundNode*)contact.bodyA.node;
+        }
 
+        [self.coffeCollisionBody removeFromParent];
     }
     //coffee hitting the car
     else if((contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (CollisionCategoryCoffeCup | CollisionCategoryCar))
     {
+        if (contact.bodyA.categoryBitMask == CollisionCategoryCoffeCup)
+        {
+            self.coffeCollisionBody = (HFCoffeeNode*)contact.bodyA.node;
+            self.carCollisionBody = (HFCar*)contact.bodyB.node;
+        }else
+        {
+            self.coffeCollisionBody = (HFCoffeeNode*)contact.bodyB.node;
+            self.carCollisionBody = (HFCar*)contact.bodyA.node;
+        }
+
         [self addPoints: HFPointsPerCoffeeHit];
+        [self.coffeCollisionBody removeFromParent];
     }
     //donut hitting the ground
     else if((contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (CollisionCategoryDonut | CollisionCategoryGround))
     {
+        if (contact.bodyA.categoryBitMask == CollisionCategoryDonut)
+        {
+            self.donutCollisionBody = (HFDonutNode*)contact.bodyA.node;
+            self.groundCollisionBody = (HFGroundNode*)contact.bodyB.node;
+        }else
+        {
+            self.donutCollisionBody = (HFDonutNode*)contact.bodyB.node;
+            self.groundCollisionBody = (HFGroundNode*)contact.bodyA.node;
+        }
 
+        [self.donutCollisionBody removeFromParent];
     }
     //donut hitting the car
     else if((contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (CollisionCategoryDonut | CollisionCategoryCar))
     {
+        if (contact.bodyA.categoryBitMask == CollisionCategoryDonut)
+        {
+            self.donutCollisionBody = (HFDonutNode*)contact.bodyA.node;
+            self.carCollisionBody = (HFCar*)contact.bodyB.node;
+        }else
+        {
+            self.donutCollisionBody = (HFDonutNode*)contact.bodyB.node;
+            self.carCollisionBody = (HFCar*)contact.bodyA.node;
+        }
+
         [self addPoints:HFPointsPerDonutHit];
+        [self.donutCollisionBody removeFromParent];
     }
     //baby hitting the ground
     else if((contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (CollisionCategoryBaby | CollisionCategoryGround))
     {
+        if (contact.bodyA.categoryBitMask == CollisionCategoryBaby)
+        {
+            self.babyCollisionBody = (HFBabyNode*)contact.bodyA.node;
+            self.groundCollisionBody = (HFGroundNode*)contact.bodyB.node;
+        }else
+        {
+            self.babyCollisionBody = (HFBabyNode*)contact.bodyB.node;
+            self.groundCollisionBody = (HFGroundNode*)contact.bodyA.node;
+        }
 
+        [self loseLife];
+        [self.babyCollisionBody removeFromParent];
     }
     //baby hitting the car
     else if((contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (CollisionCategoryBaby | CollisionCategoryCar))
     {
+        if (contact.bodyA.categoryBitMask == CollisionCategoryBaby)
+        {
+            self.babyCollisionBody = (HFBabyNode*)contact.bodyA.node;
+            self.carCollisionBody = (HFCar*)contact.bodyB.node;
+        }else
+        {
+            self.babyCollisionBody = (HFBabyNode*)contact.bodyB.node;
+            self.carCollisionBody = (HFCar*)contact.bodyA.node;
+        }
+
         [self addPoints:HFPointsPerBabyHit];
+        [self.babyCollisionBody removeFromParent];
     }
 }
 
@@ -229,9 +287,12 @@
         self.totalGameTime += currentTime - self.lastUpdateTimeInterval;
     }
 
-    if (self.timeSinceMonitorAdded > self.monitorSpawnTimeInterval && !self.gameOver)
+    if (self.timeSinceMonitorAdded > self.monitorSpawnTimeInterval && self.timeSinceMonitorAdded > self.donutSpawnTimeInterval && self.timeSinceMonitorAdded > self.coffeeSpawnTimeInterval && self.timeSinceMonitorAdded > self.babySpawnTimeInterval && !self.gameOver)
     {
         [self initializeBabyMonitor];
+        [self initializeDonuts];
+        [self initializeCoffee];
+        [self initializeBaby];
         self.timeSinceMonitorAdded = 0;
     }
 
@@ -245,19 +306,31 @@
 
     if (self.totalGameTime > 60)
     {
-        self.monitorSpawnTimeInterval = 0.5;
+        self.monitorSpawnTimeInterval = 1;
+        self.donutSpawnTimeInterval = 1.5;
+        self.coffeeSpawnTimeInterval = 1.75;
+        self.babySpawnTimeInterval = 2;
     }
     else if(self.totalGameTime > 30)
     {
-        self.monitorSpawnTimeInterval = 0.65;
+        self.monitorSpawnTimeInterval = 1.25;
+        self.donutSpawnTimeInterval = 1.75;
+        self.coffeeSpawnTimeInterval = 2;
+        self.babySpawnTimeInterval = 2.25;
     }
     else if(self.totalGameTime > 20)
     {
-        self.monitorSpawnTimeInterval = 0.75;
+        self.monitorSpawnTimeInterval = 1.5;
+        self.donutSpawnTimeInterval = 2;
+        self.coffeeSpawnTimeInterval = 2.25;
+        self.babySpawnTimeInterval = 2.5;
     }
     else if(self.totalGameTime > 10)
     {
-        self.monitorSpawnTimeInterval = 1;
+        self.monitorSpawnTimeInterval = 1.75;
+        self.donutSpawnTimeInterval = 2.25;
+        self.coffeeSpawnTimeInterval = 2.5;
+        self.babySpawnTimeInterval = 2.75;
     }
 
     if(self.gameOver && !self.gameOverDisplayed)
@@ -266,7 +339,7 @@
     }
 
     HFHudNode *hud = (HFHudNode *)[self childNodeWithName:@"HUD"];
-    if (hud.score > 300)
+    if (hud.score > 1000)
     {
         [self advanceToNextLevel];
     }
@@ -281,7 +354,7 @@
 #pragma - Car setup
 -(void)initializeCar
 {
-    HFCar *carNode = [HFCar initWithPosition:CGPointMake(self.size.width / 2, (carSize.height / 2) + 50)];
+    HFCar *carNode = [HFCar initWithPosition:CGPointMake(self.size.width / 2, (carSize.height / 2) + 40)];
     carNode.name = @"Car";
     [self addChild:carNode];
     
@@ -307,6 +380,48 @@
     [self addChild:monitor];
 }
 
+-(void)initializeDonuts
+{
+    HFDonutNode *donut = [HFDonutNode generateDonuts];
+    float deltaY = [HFUtilities randomWithMin:HFBabyMonitorMinSpeed max:HFBabyMonitorMaxSpeed];
+    donut.physicsBody.velocity = CGVectorMake(0, deltaY);
+
+    //range of spawn position
+    float yCoordinate = self.frame.size.height + donut.size.height;
+    float xCoordinate = [HFUtilities randomWithMin:donut.size.width + 10 max:self.frame.size.width - donut.size.width - 10];
+    donut.position = CGPointMake(xCoordinate, yCoordinate);
+    donut.name = @"Donut";
+    [self addChild:donut];
+}
+
+-(void)initializeCoffee
+{
+    HFCoffeeNode *coffee = [HFCoffeeNode generateCoffee];
+    float deltaY = [HFUtilities randomWithMin:HFBabyMonitorMinSpeed max:HFBabyMonitorMaxSpeed];
+    coffee.physicsBody.velocity = CGVectorMake(0, deltaY);
+
+    //range of spawn position
+    float yCoordinate = self.frame.size.height + coffee.size.height;
+    float xCoordinate = [HFUtilities randomWithMin:coffee.size.width + 10 max:self.frame.size.width - coffee.size.width - 10];
+    coffee.position = CGPointMake(xCoordinate, yCoordinate);
+    coffee.name = @"Donut";
+    [self addChild:coffee];
+}
+
+-(void)initializeBaby
+{
+    HFCoffeeNode *coffee = [HFCoffeeNode generateCoffee];
+    float deltaY = [HFUtilities randomWithMin:HFBabyMonitorMinSpeed max:HFBabyMonitorMaxSpeed];
+    coffee.physicsBody.velocity = CGVectorMake(0, deltaY);
+
+    //range of spawn position
+    float yCoordinate = self.frame.size.height + coffee.size.height;
+    float xCoordinate = [HFUtilities randomWithMin:coffee.size.width + 10 max:self.frame.size.width - coffee.size.width - 10];
+    coffee.position = CGPointMake(xCoordinate, yCoordinate);
+    coffee.name = @"Donut";
+    [self addChild:coffee];
+}
+
 -(void)initializeHUD
 {
     HFHudNode *hud = [HFHudNode hudAtPostions:CGPointMake(0, self.frame.size.height - 20) inFrame:self.frame];
@@ -324,7 +439,7 @@
     //moving the ship based on degree of tilt detected
     if (fabs(accelerationData.acceleration.y) > 0.2)
     {
-        [carNode.physicsBody applyForce:CGVectorMake(40 * accelerationData.acceleration.y, 0)];
+        [carNode.physicsBody applyForce:CGVectorMake(65 * accelerationData.acceleration.y, 0)];
     }
 }
 

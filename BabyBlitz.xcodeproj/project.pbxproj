@@ -30,14 +30,18 @@
 		365704C219DCD16D00D5F226 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 365704C019DCD16D00D5F226 /* InfoPlist.strings */; };
 		365704C419DCD16D00D5F226 /* BabyBlitzTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 365704C319DCD16D00D5F226 /* BabyBlitzTests.m */; };
 		3669760C19E5B82F00770809 /* HFLevelTitleNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3669760B19E5B82F00770809 /* HFLevelTitleNode.m */; };
-		3681562719E4B8320060E8BC /* HFRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3681562619E4B8320060E8BC /* HFRootViewController.m */; };
-		3681562A19E501F30060E8BC /* HFDoctorSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3681562919E501F30060E8BC /* HFDoctorSelectViewController.m */; };
 		3681562D19E5024E0060E8BC /* HFTutorialScene1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3681562C19E5024E0060E8BC /* HFTutorialScene1.m */; };
 		3681563019E5025D0060E8BC /* HFTutorialScene2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3681562F19E5025D0060E8BC /* HFTutorialScene2.m */; };
-		3681563319E5039D0060E8BC /* HFLastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3681563219E5039D0060E8BC /* HFLastViewController.m */; };
 		3681563619E503C90060E8BC /* HFLevel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3681563519E503C90060E8BC /* HFLevel2.m */; };
 		3681563919E503D40060E8BC /* HFLevel3.m in Sources */ = {isa = PBXBuildFile; fileRef = 3681563819E503D40060E8BC /* HFLevel3.m */; };
+		3690C6CA19E727A900A8B618 /* HFDonutNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3690C6C919E727A900A8B618 /* HFDonutNode.m */; };
+		3690C6CD19E72E0500A8B618 /* HFCoffeeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3690C6CC19E72E0500A8B618 /* HFCoffeeNode.m */; };
+		3690C6D019E72FE100A8B618 /* HFBabyNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3690C6CF19E72FE100A8B618 /* HFBabyNode.m */; };
 		36AF7F2B19DCF5D0003A26F9 /* HFCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 36AF7F2A19DCF5D0003A26F9 /* HFCar.m */; };
+		36B10D9319E5DC330086C5F2 /* HFStartScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 36B10D9219E5DC330086C5F2 /* HFStartScene.m */; };
+		36B10D9619E5DC430086C5F2 /* HFDoctorSelectScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 36B10D9519E5DC430086C5F2 /* HFDoctorSelectScene.m */; };
+		36B10D9919E5DC540086C5F2 /* HFGameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 36B10D9819E5DC540086C5F2 /* HFGameOverScene.m */; };
+		36B10D9C19E5DF7F0086C5F2 /* HFWinnerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 36B10D9B19E5DF7F0086C5F2 /* HFWinnerNode.m */; };
 		36EDA07519E094C500FD592E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36EDA07419E094C500FD592E /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,22 +91,30 @@
 		365704C319DCD16D00D5F226 /* BabyBlitzTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BabyBlitzTests.m; sourceTree = "<group>"; };
 		3669760A19E5B82F00770809 /* HFLevelTitleNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFLevelTitleNode.h; sourceTree = "<group>"; };
 		3669760B19E5B82F00770809 /* HFLevelTitleNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFLevelTitleNode.m; sourceTree = "<group>"; };
-		3681562519E4B8320060E8BC /* HFRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFRootViewController.h; sourceTree = "<group>"; };
-		3681562619E4B8320060E8BC /* HFRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFRootViewController.m; sourceTree = "<group>"; };
-		3681562819E501F30060E8BC /* HFDoctorSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFDoctorSelectViewController.h; sourceTree = "<group>"; };
-		3681562919E501F30060E8BC /* HFDoctorSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFDoctorSelectViewController.m; sourceTree = "<group>"; };
 		3681562B19E5024E0060E8BC /* HFTutorialScene1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFTutorialScene1.h; sourceTree = "<group>"; };
 		3681562C19E5024E0060E8BC /* HFTutorialScene1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFTutorialScene1.m; sourceTree = "<group>"; };
 		3681562E19E5025D0060E8BC /* HFTutorialScene2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFTutorialScene2.h; sourceTree = "<group>"; };
 		3681562F19E5025D0060E8BC /* HFTutorialScene2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFTutorialScene2.m; sourceTree = "<group>"; };
-		3681563119E5039C0060E8BC /* HFLastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFLastViewController.h; sourceTree = "<group>"; };
-		3681563219E5039D0060E8BC /* HFLastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFLastViewController.m; sourceTree = "<group>"; };
 		3681563419E503C90060E8BC /* HFLevel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFLevel2.h; sourceTree = "<group>"; };
 		3681563519E503C90060E8BC /* HFLevel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFLevel2.m; sourceTree = "<group>"; };
 		3681563719E503D40060E8BC /* HFLevel3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFLevel3.h; sourceTree = "<group>"; };
 		3681563819E503D40060E8BC /* HFLevel3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFLevel3.m; sourceTree = "<group>"; };
+		3690C6C819E727A900A8B618 /* HFDonutNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFDonutNode.h; sourceTree = "<group>"; };
+		3690C6C919E727A900A8B618 /* HFDonutNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFDonutNode.m; sourceTree = "<group>"; };
+		3690C6CB19E72E0500A8B618 /* HFCoffeeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFCoffeeNode.h; sourceTree = "<group>"; };
+		3690C6CC19E72E0500A8B618 /* HFCoffeeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFCoffeeNode.m; sourceTree = "<group>"; };
+		3690C6CE19E72FE100A8B618 /* HFBabyNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFBabyNode.h; sourceTree = "<group>"; };
+		3690C6CF19E72FE100A8B618 /* HFBabyNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFBabyNode.m; sourceTree = "<group>"; };
 		36AF7F2919DCF5D0003A26F9 /* HFCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFCar.h; sourceTree = "<group>"; };
 		36AF7F2A19DCF5D0003A26F9 /* HFCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFCar.m; sourceTree = "<group>"; };
+		36B10D9119E5DC330086C5F2 /* HFStartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFStartScene.h; sourceTree = "<group>"; };
+		36B10D9219E5DC330086C5F2 /* HFStartScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFStartScene.m; sourceTree = "<group>"; };
+		36B10D9419E5DC430086C5F2 /* HFDoctorSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFDoctorSelectScene.h; sourceTree = "<group>"; };
+		36B10D9519E5DC430086C5F2 /* HFDoctorSelectScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFDoctorSelectScene.m; sourceTree = "<group>"; };
+		36B10D9719E5DC540086C5F2 /* HFGameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFGameOverScene.h; sourceTree = "<group>"; };
+		36B10D9819E5DC540086C5F2 /* HFGameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFGameOverScene.m; sourceTree = "<group>"; };
+		36B10D9A19E5DF7F0086C5F2 /* HFWinnerNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFWinnerNode.h; sourceTree = "<group>"; };
+		36B10D9B19E5DF7F0086C5F2 /* HFWinnerNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFWinnerNode.m; sourceTree = "<group>"; };
 		36EDA07419E094C500FD592E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -136,6 +148,10 @@
 		36497E4819DDF20600778315 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				36B10D9119E5DC330086C5F2 /* HFStartScene.h */,
+				36B10D9219E5DC330086C5F2 /* HFStartScene.m */,
+				36B10D9419E5DC430086C5F2 /* HFDoctorSelectScene.h */,
+				36B10D9519E5DC430086C5F2 /* HFDoctorSelectScene.m */,
 				3681562B19E5024E0060E8BC /* HFTutorialScene1.h */,
 				3681562C19E5024E0060E8BC /* HFTutorialScene1.m */,
 				3681562E19E5025D0060E8BC /* HFTutorialScene2.h */,
@@ -146,6 +162,8 @@
 				3681563519E503C90060E8BC /* HFLevel2.m */,
 				3681563719E503D40060E8BC /* HFLevel3.h */,
 				3681563819E503D40060E8BC /* HFLevel3.m */,
+				36B10D9719E5DC540086C5F2 /* HFGameOverScene.h */,
+				36B10D9819E5DC540086C5F2 /* HFGameOverScene.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -157,12 +175,20 @@
 				36AF7F2A19DCF5D0003A26F9 /* HFCar.m */,
 				362F995219DF5368003F0690 /* HFBabyMonitor.h */,
 				362F995319DF5368003F0690 /* HFBabyMonitor.m */,
+				3690C6C819E727A900A8B618 /* HFDonutNode.h */,
+				3690C6C919E727A900A8B618 /* HFDonutNode.m */,
+				3690C6CB19E72E0500A8B618 /* HFCoffeeNode.h */,
+				3690C6CC19E72E0500A8B618 /* HFCoffeeNode.m */,
+				3690C6CE19E72FE100A8B618 /* HFBabyNode.h */,
+				3690C6CF19E72FE100A8B618 /* HFBabyNode.m */,
 				362F995519DF5BC8003F0690 /* HFGroundNode.h */,
 				362F995619DF5BC8003F0690 /* HFGroundNode.m */,
 				3624DA4719E2FB2600D9DB22 /* HFHudNode.h */,
 				3624DA4819E2FB2600D9DB22 /* HFHudNode.m */,
 				36286A5419E3152D0056A6E7 /* HFGameOverNode.h */,
 				36286A5519E3152D0056A6E7 /* HFGameOverNode.m */,
+				36B10D9A19E5DF7F0086C5F2 /* HFWinnerNode.h */,
+				36B10D9B19E5DF7F0086C5F2 /* HFWinnerNode.m */,
 				3669760A19E5B82F00770809 /* HFLevelTitleNode.h */,
 				3669760B19E5B82F00770809 /* HFLevelTitleNode.m */,
 			);
@@ -267,14 +293,8 @@
 		36EDA07319E0906600FD592E /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3681562519E4B8320060E8BC /* HFRootViewController.h */,
-				3681562619E4B8320060E8BC /* HFRootViewController.m */,
-				3681562819E501F30060E8BC /* HFDoctorSelectViewController.h */,
-				3681562919E501F30060E8BC /* HFDoctorSelectViewController.m */,
 				365704A819DCD16D00D5F226 /* HFGameViewController.h */,
 				365704A919DCD16D00D5F226 /* HFGameViewController.m */,
-				3681563119E5039C0060E8BC /* HFLastViewController.h */,
-				3681563219E5039D0060E8BC /* HFLastViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -379,22 +399,26 @@
 			files = (
 				365704AA19DCD16D00D5F226 /* HFGameViewController.m in Sources */,
 				3681562D19E5024E0060E8BC /* HFTutorialScene1.m in Sources */,
+				3690C6CD19E72E0500A8B618 /* HFCoffeeNode.m in Sources */,
 				362F995719DF5BC8003F0690 /* HFGroundNode.m in Sources */,
+				36B10D9919E5DC540086C5F2 /* HFGameOverScene.m in Sources */,
 				36497E4D19DDF3C500778315 /* HFUtilities.m in Sources */,
 				365704A419DCD16D00D5F226 /* HFAppDelegate.m in Sources */,
-				3681563319E5039D0060E8BC /* HFLastViewController.m in Sources */,
+				3690C6CA19E727A900A8B618 /* HFDonutNode.m in Sources */,
 				3624DA4919E2FB2600D9DB22 /* HFHudNode.m in Sources */,
 				36AF7F2B19DCF5D0003A26F9 /* HFCar.m in Sources */,
 				3681563919E503D40060E8BC /* HFLevel3.m in Sources */,
 				3669760C19E5B82F00770809 /* HFLevelTitleNode.m in Sources */,
 				36286A5619E3152D0056A6E7 /* HFGameOverNode.m in Sources */,
+				36B10D9C19E5DF7F0086C5F2 /* HFWinnerNode.m in Sources */,
+				36B10D9619E5DC430086C5F2 /* HFDoctorSelectScene.m in Sources */,
 				365704A019DCD16D00D5F226 /* main.m in Sources */,
 				362F995419DF5368003F0690 /* HFBabyMonitor.m in Sources */,
-				3681562719E4B8320060E8BC /* HFRootViewController.m in Sources */,
+				3690C6D019E72FE100A8B618 /* HFBabyNode.m in Sources */,
 				3681563019E5025D0060E8BC /* HFTutorialScene2.m in Sources */,
 				3681563619E503C90060E8BC /* HFLevel2.m in Sources */,
 				3601798019DCD3320082E86A /* HFMainGameScene.m in Sources */,
-				3681562A19E501F30060E8BC /* HFDoctorSelectViewController.m in Sources */,
+				36B10D9319E5DC330086C5F2 /* HFStartScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

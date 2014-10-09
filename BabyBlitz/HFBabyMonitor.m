@@ -17,10 +17,14 @@
 
     if (monitorType == HFBabyMonitorLarge)
     {
-        babyMonitor = [self spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(75, 75)];
+        babyMonitor = [self spriteNodeWithImageNamed:@"monitor"];
+        babyMonitor.physicsBody.mass = 2;
+        babyMonitor.size = CGSizeMake(50, 65);
     }else if (monitorType == HFBabyMonitorSmall)
     {
-        babyMonitor = [self spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(45, 45)];
+        babyMonitor = [self spriteNodeWithImageNamed:@"monitor"];
+        babyMonitor.physicsBody.mass = 5;
+        babyMonitor.size = CGSizeMake(50, 65);
     }
 
     SKAction *monitorRotation = [SKAction rotateByAngle:3 * M_PI duration:5];
