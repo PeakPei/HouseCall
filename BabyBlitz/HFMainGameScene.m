@@ -20,6 +20,7 @@
 #import "HFDonutNode.h"
 #import "HFCoffeeNode.h"
 #import "HFBabyNode.h"
+#import "HFGameOverScene.h"
 
 #import <CoreMotion/CoreMotion.h>
 #import <AVFoundation/AVFoundation.h>
@@ -36,12 +37,15 @@
 @property HFGroundNode *groundCollisionBody;
 @property HFCar *carCollisionBody;
 @property HFDonutNode *donutCollisionBody;
-@property HFCoffeeNode *coffeCollisionBody;
+@property HFCoffeeNode *coffeeCollisionBody;
 @property HFBabyNode *babyCollisionBody;
 @property HFLevelTitleNode *levelTitle;
 
 @property (nonatomic) NSTimeInterval lastUpdateTimeInterval;
 @property (nonatomic) NSTimeInterval timeSinceMonitorAdded;
+@property (nonatomic) NSTimeInterval timeSinceDonutAdded;
+@property (nonatomic) NSTimeInterval timeSinceCoffeeAdded;
+@property (nonatomic) NSTimeInterval timeSinceBabyAdded;
 
 @property (nonatomic) NSTimeInterval totalGameTime;
 @property (nonatomic) NSTimeInterval monitorSpawnTimeInterval;
@@ -84,6 +88,9 @@
         //intialize timer properties
         self.lastUpdateTimeInterval = 0;
         self.timeSinceMonitorAdded = 0;
+        self.timeSinceBabyAdded = 0;
+        self.timeSinceCoffeeAdded = 0;
+        self.timeSinceDonutAdded = 0;
 
         self.monitorSpawnTimeInterval = 2;
         self.donutSpawnTimeInterval = 2.5;
@@ -122,8 +129,8 @@
             [node removeFromParent];
         }
 
-        HFStartScene *reset = [HFStartScene sceneWithSize:self.view.bounds.size];
-        [self.view presentScene:reset];
+        HFGameOverScene *gameOverScene = [HFGameOverScene sceneWithSize:self.view.bounds.size];
+        [self.view presentScene:gameOverScene];
     }
 }
 
@@ -182,31 +189,31 @@
     {
         if (contact.bodyA.categoryBitMask == CollisionCategoryCoffeCup)
         {
-            self.coffeCollisionBody = (HFCoffeeNode*)contact.bodyA.node;
+            self.coffeeCollisionBody = (HFCoffeeNode*)contact.bodyA.node;
             self.groundCollisionBody = (HFGroundNode*)contact.bodyB.node;
         }else
         {
-            self.coffeCollisionBody = (HFCoffeeNode*)contact.bodyB.node;
+            self.coffeeCollisionBody = (HFCoffeeNode*)contact.bodyB.node;
             self.groundCollisionBody = (HFGroundNode*)contact.bodyA.node;
         }
 
-        [self.coffeCollisionBody removeFromParent];
+        [self.coffeeCollisionBody removeFromParent];
     }
     //coffee hitting the car
     else if((contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (CollisionCategoryCoffeCup | CollisionCategoryCar))
     {
         if (contact.bodyA.categoryBitMask == CollisionCategoryCoffeCup)
         {
-            self.coffeCollisionBody = (HFCoffeeNode*)contact.bodyA.node;
+            self.coffeeCollisionBody = (HFCoffeeNode*)contact.bodyA.node;
             self.carCollisionBody = (HFCar*)contact.bodyB.node;
         }else
         {
-            self.coffeCollisionBody = (HFCoffeeNode*)contact.bodyB.node;
+            self.coffeeCollisionBody = (HFCoffeeNode*)contact.bodyB.node;
             self.carCollisionBody = (HFCar*)contact.bodyA.node;
         }
 
         [self addPoints: HFPointsPerCoffeeHit];
-        [self.coffeCollisionBody removeFromParent];
+        [self.coffeeCollisionBody removeFromParent];
     }
     //donut hitting the ground
     else if((contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask) == (CollisionCategoryDonut | CollisionCategoryGround))
@@ -284,18 +291,36 @@
     if (self.lastUpdateTimeInterval)
     {
         self.timeSinceMonitorAdded += currentTime - self.lastUpdateTimeInterval;
+        self.timeSinceBabyAdded += currentTime - self.lastUpdateTimeInterval;
+        self.timeSinceDonutAdded += currentTime - self.lastUpdateTimeInterval;
+        self.timeSinceCoffeeAdded += currentTime - self.lastUpdateTimeInterval;
+        
         self.totalGameTime += currentTime - self.lastUpdateTimeInterval;
     }
 
-    if (self.timeSinceMonitorAdded > self.monitorSpawnTimeInterval && self.timeSinceMonitorAdded > self.donutSpawnTimeInterval && self.timeSinceMonitorAdded > self.coffeeSpawnTimeInterval && self.timeSinceMonitorAdded > self.babySpawnTimeInterval && !self.gameOver)
+    //checking time interval between different dropped objects
+    if (self.timeSinceMonitorAdded > self.monitorSpawnTimeInterval && !self.gameOver)
     {
         [self initializeBabyMonitor];
-        [self initializeDonuts];
-        [self initializeCoffee];
-        [self initializeBaby];
         self.timeSinceMonitorAdded = 0;
     }
+    else if(self.timeSinceDonutAdded > self.donutSpawnTimeInterval && !self.gameOver)
+    {
+        [self initializeDonuts];
+        self.timeSinceDonutAdded = 0;
+    }
+    else if(self.timeSinceCoffeeAdded > self.coffeeSpawnTimeInterval && !self.gameOver)
+    {
+        [self initializeCoffee];
+        self.timeSinceCoffeeAdded = 0;
+    }
+    else if(self.timeSinceBabyAdded > self.babySpawnTimeInterval && !self.gameOver)
+    {
+        [self initializeBaby];
+        self.timeSinceBabyAdded = 0;
+    }
 
+    //getting rid of title animation and text after level starts
     if (self.totalGameTime > 2.5)
     {
         [self.levelTitle removeFromParent];
@@ -333,11 +358,13 @@
         self.babySpawnTimeInterval = 2.75;
     }
 
+    //check to see that game is over - only executes once
     if(self.gameOver && !self.gameOverDisplayed)
     {
         [self performGameOver];
     }
 
+    //win condition
     HFHudNode *hud = (HFHudNode *)[self childNodeWithName:@"HUD"];
     if (hud.score > 1000)
     {
@@ -410,16 +437,16 @@
 
 -(void)initializeBaby
 {
-    HFCoffeeNode *coffee = [HFCoffeeNode generateCoffee];
+    HFBabyNode *baby = [HFBabyNode generateBaby];
     float deltaY = [HFUtilities randomWithMin:HFBabyMonitorMinSpeed max:HFBabyMonitorMaxSpeed];
-    coffee.physicsBody.velocity = CGVectorMake(0, deltaY);
+    baby.physicsBody.velocity = CGVectorMake(0, deltaY);
 
     //range of spawn position
-    float yCoordinate = self.frame.size.height + coffee.size.height;
-    float xCoordinate = [HFUtilities randomWithMin:coffee.size.width + 10 max:self.frame.size.width - coffee.size.width - 10];
-    coffee.position = CGPointMake(xCoordinate, yCoordinate);
-    coffee.name = @"Donut";
-    [self addChild:coffee];
+    float yCoordinate = self.frame.size.height + baby.size.height;
+    float xCoordinate = [HFUtilities randomWithMin:baby.size.width + 10 max:self.frame.size.width - baby.size.width - 10];
+    baby.position = CGPointMake(xCoordinate, yCoordinate);
+    baby.name = @"Donut";
+    [self addChild:baby];
 }
 
 -(void)initializeHUD
