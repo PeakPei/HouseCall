@@ -8,6 +8,8 @@
 
 #import "HFHudNode.h"
 #import "HFUtilities.h"
+#import "HFMainGameScene.h"
+#import "HFDoctorSelectScene.h"
 
 @implementation HFHudNode
 
@@ -18,8 +20,12 @@
     hud.name = @"HUD";
     hud.zPosition = 10;
 
-    SKSpriteNode *livesImage = [SKSpriteNode spriteNodeWithColor:[UIColor greenColor] size:CGSizeMake(50, 50)];
-    livesImage.position = CGPointMake(30, -10);
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *savedImage = [defaults objectForKey:@"savedImage"];
+
+    SKSpriteNode *livesImage = [SKSpriteNode spriteNodeWithImageNamed:savedImage];
+    livesImage.size = CGSizeMake(65, 65);
+    livesImage.position = CGPointMake(40, -20);
     [hud addChild:livesImage];
 
     hud.lives = HFMaxLives;
@@ -28,21 +34,22 @@
 
     for(int i = 0; i < hud.lives; i++)
     {
-        SKSpriteNode *lifeNode = [SKSpriteNode spriteNodeWithColor:[UIColor brownColor] size:CGSizeMake(15, 15)];
+        SKSpriteNode *lifeNode = [SKSpriteNode spriteNodeWithImageNamed:@"life"];
         lifeNode.name = [NSString stringWithFormat:@"Life%d", i + 1];
+        lifeNode.size = CGSizeMake(25, 25);
         [hud addChild:lifeNode];
 
         if(lastLifeBar == nil)
         {
-            lifeNode.position = CGPointMake(livesImage.position.x + 30, livesImage.position.y);
+            lifeNode.position = CGPointMake(livesImage.position.x + 50, livesImage.position.y);
         }else {
-            lifeNode.position = CGPointMake(lastLifeBar.position.x + 10, lastLifeBar.position.y);
+            lifeNode.position = CGPointMake(lastLifeBar.position.x + 30, lastLifeBar.position.y);
         }
 
         lastLifeBar = lifeNode;
     }
 
-    SKLabelNode *scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
+    SKLabelNode *scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Futura-CondensedExtraBold"];
     scoreLabel.name = @"Score";
     scoreLabel.text = @"0";
     scoreLabel.fontSize = 24;

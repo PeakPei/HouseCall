@@ -466,7 +466,7 @@
     //moving the ship based on degree of tilt detected
     if (fabs(accelerationData.acceleration.y) > 0.2)
     {
-        [carNode.physicsBody applyForce:CGVectorMake(65 * accelerationData.acceleration.y, 0)];
+        [carNode.physicsBody applyForce:CGVectorMake(75 * accelerationData.acceleration.y, 0)];
     }
 }
 

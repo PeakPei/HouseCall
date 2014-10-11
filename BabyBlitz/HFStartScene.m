@@ -13,7 +13,7 @@
 
 -(void)didMoveToView:(SKView *)view
 {
-    SKLabelNode *placeholderText = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
+    SKLabelNode *placeholderText = [SKLabelNode labelNodeWithFontNamed:@"Futura-CondensedExtraBold"];
     placeholderText.position = CGPointMake(self.size.width/2, self.size.height/2);
     placeholderText.text = @"Start";
     placeholderText.fontColor = [UIColor whiteColor];

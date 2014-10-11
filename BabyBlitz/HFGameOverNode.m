@@ -38,7 +38,7 @@
     SKAction *run = [SKAction runBlock:^
     {
         SKLabelNode *touchToRestart = [SKLabelNode labelNodeWithFontNamed:@"Futura-CondensedExtraBold"];
-        touchToRestart.text = @"Touch to Restart";
+        touchToRestart.text = @"Touch to Continue";
         touchToRestart.name = @"Restart";
         touchToRestart.fontSize = 24;
         touchToRestart.position = CGPointMake(labelNode.position.x, labelNode.position.y - 40);

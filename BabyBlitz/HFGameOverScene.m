@@ -7,13 +7,13 @@
 //
 
 #import "HFGameOverScene.h"
-#import "HFMainGameScene.h"
+#import "HFStartScene.h"
 
 @implementation HFGameOverScene
 
 -(void)didMoveToView:(SKView *)view
 {
-    SKLabelNode *placeholderText = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
+    SKLabelNode *placeholderText = [SKLabelNode labelNodeWithFontNamed:@"Futura-CondensedExtraBold"];
     placeholderText.position = CGPointMake(self.size.width/2, self.size.height/2);
     placeholderText.text = @"After Action Report";
     placeholderText.fontColor = [UIColor whiteColor];
@@ -23,9 +23,9 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    HFMainGameScene *mainGame = [HFMainGameScene sceneWithSize:self.frame.size];
+    HFStartScene *start = [HFStartScene sceneWithSize:self.frame.size];
     SKTransition *transition = [SKTransition fadeWithDuration:0.5];
-    [self.view presentScene:mainGame transition:transition];
+    [self.view presentScene:start transition:transition];
 }
 
 @end
