@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="LVB-YS-i5n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="e8f-1e-fMJ">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -21,7 +22,94 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1675" y="305"/>
+            <point key="canvasLocation" x="1813" y="341"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="5LO-qR-RZk">
+            <objects>
+                <viewController id="e8f-1e-fMJ" customClass="HFRootViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fQM-W9-eaV"/>
+                        <viewControllerLayoutGuide type="bottom" id="YDE-ZP-pJA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kjt-6M-Xvz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="www.weissbluthpediatrics.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jp2-Pb-mvF">
+                                <rect key="frame" x="41" y="294" width="238" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Visit us " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hx-yB-dSW">
+                                <rect key="frame" x="130" y="278" width="60" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="312-202-0300" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfW-RM-epp">
+                                <rect key="frame" x="106" y="356" width="109" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Welcome To HouseCall" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpn-HT-kxv">
+                                <rect key="frame" x="72" y="46" width="177" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wbm-HY-vtc">
+                                <rect key="frame" x="16" y="84" width="288" height="186"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Or call" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGf-vT-PaM">
+                                <rect key="frame" x="135" y="335" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBQ-Kw-L1V">
+                                <rect key="frame" x="93" y="415" width="134" height="30"/>
+                                <color key="backgroundColor" red="0.48539402170000001" green="0.45079398380000002" blue="0.45625059559999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Play HouseCall">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="LVB-YS-i5n" kind="modal" id="LZk-QG-Rsf"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NJe-xo-KQm">
+                                <rect key="frame" x="-5" y="0.0" width="331" height="569"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oGf-vT-PaM" firstAttribute="top" secondItem="Jp2-Pb-mvF" secondAttribute="bottom" constant="8" id="JZK-6G-sgt"/>
+                            <constraint firstItem="bpn-HT-kxv" firstAttribute="top" secondItem="fQM-W9-eaV" secondAttribute="bottom" constant="46" id="Plf-ra-lMO"/>
+                            <constraint firstItem="mBQ-Kw-L1V" firstAttribute="top" secondItem="yfW-RM-epp" secondAttribute="bottom" constant="38" id="Pu6-Ei-JGJ"/>
+                            <constraint firstItem="Jp2-Pb-mvF" firstAttribute="top" secondItem="Wbm-HY-vtc" secondAttribute="bottom" constant="24" id="Pxx-81-3cX"/>
+                            <constraint firstItem="Wbm-HY-vtc" firstAttribute="top" secondItem="bpn-HT-kxv" secondAttribute="bottom" constant="17" id="UJq-qw-ScX"/>
+                            <constraint firstItem="9hx-yB-dSW" firstAttribute="top" secondItem="Wbm-HY-vtc" secondAttribute="bottom" constant="8" id="fmD-Xu-7lF"/>
+                            <constraint firstItem="yfW-RM-epp" firstAttribute="top" secondItem="oGf-vT-PaM" secondAttribute="bottom" id="qDF-j8-ZB8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="rootImageView" destination="NJe-xo-KQm" id="8wn-eD-9bm"/>
+                        <outlet property="rootPhoneLinkLabel" destination="yfW-RM-epp" id="u4i-cZ-UHv"/>
+                        <outlet property="rootTextView" destination="Wbm-HY-vtc" id="GMX-bh-PYF"/>
+                        <outlet property="rootWebLinkLabel" destination="Jp2-Pb-mvF" id="9dj-aq-c1r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ejz-Ad-efc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1327" y="341"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

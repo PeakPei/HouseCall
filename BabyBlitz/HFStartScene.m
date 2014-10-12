@@ -13,12 +13,10 @@
 
 -(void)didMoveToView:(SKView *)view
 {
-    SKLabelNode *placeholderText = [SKLabelNode labelNodeWithFontNamed:@"Futura-CondensedExtraBold"];
-    placeholderText.position = CGPointMake(self.size.width/2, self.size.height/2);
-    placeholderText.text = @"Start";
-    placeholderText.fontColor = [UIColor whiteColor];
-    placeholderText.fontSize = 26;
-    [self addChild:placeholderText];
+    SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"StartScreen"];
+    background.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+    background.size = CGSizeMake(self.frame.size.width, self.frame.size.height);
+    [self addChild:background];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

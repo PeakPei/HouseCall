@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3601798019DCD3320082E86A /* HFMainGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3601797F19DCD3320082E86A /* HFMainGameScene.m */; };
+		3618CB8E19EB12A90062C66B /* HFRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3618CB8D19EB12A90062C66B /* HFRootViewController.m */; };
 		3624DA4919E2FB2600D9DB22 /* HFHudNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3624DA4819E2FB2600D9DB22 /* HFHudNode.m */; };
 		36286A5619E3152D0056A6E7 /* HFGameOverNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 36286A5519E3152D0056A6E7 /* HFGameOverNode.m */; };
 		362F995419DF5368003F0690 /* HFBabyMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 362F995319DF5368003F0690 /* HFBabyMonitor.m */; };
@@ -58,6 +59,8 @@
 /* Begin PBXFileReference section */
 		3601797E19DCD3320082E86A /* HFMainGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFMainGameScene.h; sourceTree = "<group>"; };
 		3601797F19DCD3320082E86A /* HFMainGameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFMainGameScene.m; sourceTree = "<group>"; };
+		3618CB8C19EB12A90062C66B /* HFRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFRootViewController.h; sourceTree = "<group>"; };
+		3618CB8D19EB12A90062C66B /* HFRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFRootViewController.m; sourceTree = "<group>"; };
 		3624DA4719E2FB2600D9DB22 /* HFHudNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFHudNode.h; sourceTree = "<group>"; };
 		3624DA4819E2FB2600D9DB22 /* HFHudNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFHudNode.m; sourceTree = "<group>"; };
 		36286A5419E3152D0056A6E7 /* HFGameOverNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFGameOverNode.h; sourceTree = "<group>"; };
@@ -295,6 +298,8 @@
 			children = (
 				365704A819DCD16D00D5F226 /* HFGameViewController.h */,
 				365704A919DCD16D00D5F226 /* HFGameViewController.m */,
+				3618CB8C19EB12A90062C66B /* HFRootViewController.h */,
+				3618CB8D19EB12A90062C66B /* HFRootViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 				36B10D9C19E5DF7F0086C5F2 /* HFWinnerNode.m in Sources */,
 				36B10D9619E5DC430086C5F2 /* HFDoctorSelectScene.m in Sources */,
 				365704A019DCD16D00D5F226 /* main.m in Sources */,
+				3618CB8E19EB12A90062C66B /* HFRootViewController.m in Sources */,
 				362F995419DF5368003F0690 /* HFBabyMonitor.m in Sources */,
 				3690C6D019E72FE100A8B618 /* HFBabyNode.m in Sources */,
 				3681563019E5025D0060E8BC /* HFTutorialScene2.m in Sources */,
